@@ -7,7 +7,7 @@ window = Tk()
 # set dimensions and properties of the window
 window.title("Books database app")
 window.configure(background = "light cyan")
-window.geometry("950x500")
+window.geometry("1000x500")
 window.resizable(width = False, height = False)
 
 # title search field
@@ -46,5 +46,21 @@ scroll_bar.grid(row = 1, column = 8, rowspan = 14, sticky = W)
 list_bx.configure(yscrollcommand = scroll_bar.set) # command enables vertical scrolling
 scroll_bar.configure(command = list_bx.yview) # yview makes listbox vertically scrollable
 
+# Modify button
+modify_btn = Button(window, text = "Modify Record", bg = "tomato3", fg = "white", font = "helvetica 10 bold", command = "")
+modify_btn.grid(row = 15, column = 4)
+
+# delete
+delete_btn = Button(window, text = "Delete Record", bg = "red", fg = "white", font = "helvetica 10 bold", command = "")
+delete_btn.grid(row = 15, column = 5)
+
+view_btn = Button(window, text = "View all records", bg = "black", fg = "white", font = "helvetica 10 bold", command = "")
+view_btn.grid(row = 15, column = 1)
+
+clear_btn = Button(window, text = "Clear Screen", bg = "maroon", fg = "white", font = "helvetica 10 bold", command = "")
+clear_btn.grid(row = 15, column = 2)
+
+delete_btn = Button(window, text = "Exit Application", bg = "blue", fg = "white", font = "helvetica 10 bold", command = "")
+delete_btn.grid(row = 15, column = 3)
 
 window.mainloop()
