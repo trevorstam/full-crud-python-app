@@ -7,7 +7,7 @@ window = Tk()
 # set dimensions and properties of the window
 window.title("Books database app")
 window.configure(background = "light cyan")
-window.geometry("850x500")
+window.geometry("950x500")
 window.resizable(width = False, height = False)
 
 # title search field
@@ -19,17 +19,32 @@ title_entry.grid(row = 0, column = 1, sticky = W)
 
 # Author search field
 author_label = ttk.Label(window, text = "Author", background = "burlywood3", font = ("TkDefaultFont", 16))
-author_label.grid(row = 0, column = 4, sticky = W)
+author_label.grid(row = 0, column = 2, sticky = W)
 author_text = StringVar()
 author_entry = ttk.Entry(window, width = 24, textvariable = author_text)
-author_entry.grid(row = 0, column = 5, sticky = W)
+author_entry.grid(row = 0, column = 3, sticky = W)
 
 # ISBN seach field
 isbn_label = ttk.Label(window, text = "ISBN", background = "burlywood3", font = ("TkDefaultFont", 16))
-isbn_label.grid(row = 0, column = 7, sticky = W)
+isbn_label.grid(row = 0, column = 4, sticky = W)
 isbn_text = StringVar()
 isbn_entry = ttk.Entry(window, width = 24, textvariable = isbn_text)
-isbn_entry.grid(row = 0, column = 8, sticky = W)
+isbn_entry.grid(row = 0, column = 5, sticky = W)
+
+# Button to add books
+add_btn = Button(window, text = "Add Book", bg = "blue", fg = "white", font = "helvetica 10 bold", command = "")
+add_btn.grid(row = 0, column = 6, sticky = W)
+
+# list box that shows all the books
+list_bx = Listbox(window, height = 16, width = 40, font = "helvetica 13", background = "ghost white")
+list_bx.grid(row = 3, column = 1, columnspan = 14, sticky = W + E, pady = 40, padx = 15)
+
+# scroll bar on right of listbox to enable scrolling
+scroll_bar = Scrollbar(window)
+scroll_bar.grid(row = 1, column = 8, rowspan = 14, sticky = W)
+
+list_bx.configure(yscrollcommand = scroll_bar.set) # command enables vertical scrolling
+scroll_bar.configure(command = list_bx.yview) # yview makes listbox vertically scrollable
 
 
 window.mainloop()
